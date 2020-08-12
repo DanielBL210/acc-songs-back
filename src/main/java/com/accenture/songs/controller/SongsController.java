@@ -29,11 +29,6 @@ public class SongsController {
         this.songRepository = songRepository;
     }
 
-    /*@GetMapping(path = "/helloworld", produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody SongModel helloworld(){
-        SongModel songModel=new SongModel("Hola Mundo","Esta.png","pepito","merengue","album","User",new Date(),new Date());
-        return songModel;
-    }*/
 
     @GetMapping("/getAll")
     public List<SongModel> getAllSongs(){
@@ -50,12 +45,10 @@ public class SongsController {
 
     @PostMapping("/save")
     public SongModel createSong(@RequestBody SongModel song) {
-        System.out.println("Entro al servicio");
         SongModel sm=new SongModel();
         sm.asignDetails(song);
         sm.setCreate_at(new Date());
         sm.setUpdate_at(new Date());
-        System.out.println("A punto de guardar "+sm.toString());
         return songRepository.save(sm);
     }
 
