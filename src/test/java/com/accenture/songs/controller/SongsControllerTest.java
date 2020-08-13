@@ -107,12 +107,4 @@ class SongsControllerTest {
         }
     }
 
-    @Test
-    void deleteSong() {
-
-    }
-
-    @AfterEach
-    void tearDown() {
-    }
 }
